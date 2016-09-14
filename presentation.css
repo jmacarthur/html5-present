@@ -1,0 +1,28 @@
+comment: "From https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/"
+
+body {
+    background: #ccc;
+    padding: 20px;
+}
+
+.slide-contents {
+    width: 600px;
+    height: 400px;
+    padding: 50px;
+    text-align: center;
+    background: white;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(100%,100%);
+    transform-origin: center top;
+}
+
+.scaleable-wrapper {
+    padding: 20px;
+    resize: both;
+    position: relative;
+    background: #666;
+    height: 400px;
+}
+

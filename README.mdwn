@@ -1,0 +1,26 @@
+7# html-present
+
+This is a very basic tool for making HTML presentations. You might like it if:
+
+* You want to make presentations that work in a browser
+* You want animated gifs or videos in your presentation
+* You like writing text configuration files rather than using a graphical user interface.
+
+# Rationale
+
+There are already plenty of presentation tools; if those work fine for you, then continue with them. I wanted a presentation tool which would allow me to write presentations in text with markup (as Pinpoint does), with support for GIFs and video, and that would run anywhere with minimal dependencies. Since html-present uses a browser for all its layout, it is very simple.
+
+# How to use it
+
+You can compile the example presentation by running "./compile.py example/example.html". This will produce the presentation in the 'output' directory.
+
+You can also try the "video-example.html" file, but that requires a video file to be present in the source directory. There isn't one in this git repository, to save space, but you can use any video file you have available.
+
+Although the input files have the '.html' extension, the input files are not really html; they are xml documents which should have several "slide" elements at the top level. Slide elements can contain any HTML5 elements you'd normally find in a BODY element. This is passed almost straight through to the browser, so you will need to encode '<' and '>' as '&lt;' and '&rt;', for example.
+
+# How does it work?
+
+Other than splitting up the slides into different documents, the most important part is the scaling of pages. All the slides are placed inside a DIV element which is then scaled to fit the window size; this is important because you won't know what size your window will be until you plug in a projector. The trick for scaling this DIV and some of the javascript is taken from https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/.
+
+There's some other basic javascript added to each page, which allows you to navigate using the arrow keys, and some which will start and stop a video in the page if you press the spacebar. This will only work if there's one video on the slide! Adding two or more videos to the same slide is not recommended. Animated GIFs can't be stopped and started at the moment.
+
